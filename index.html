@@ -1,0 +1,504 @@
+<html>
+
+<head>
+    <!-- https://getbootstrap.com/docs/4.4/getting-started/introduction/ -->
+    <!-- https://www.practicalecommerce.com/Create-Responsive-Ecommerce-Product-Pages-with-Bootstrap -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <!-- <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+            integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+            crossorigin="anonymous"></script> -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- Start for JQuery Autocomplete-->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+        $(function () {
+            $("#search").autocomplete({
+                source: function (request, response) {
+                    $.ajax({
+                        url: "http://localhost:8080/search/suggestion",
+                        type: "GET",
+                        data: {
+                            q: request.term
+                        },
+                        dataType: "json",
+                        success: function (data) {
+                            response(data);
+                        }
+                    });
+                },
+                select: function (event, ui) {
+                    $('#search').val(ui.item.value)
+                    return false;
+                }
+            });
+            $("#search").autocomplete({
+                source: function (request, response) {
+                    $.ajax({
+                        url: "http://localhost:8080/search/suggestion",
+                        type: "GET",
+                        data: {
+                            q: request.term
+                        },
+                        dataType: "json",
+                        success: function (data) {
+                            response(data);
+                        }
+                    });
+                },
+                minLength: 1,
+                select: function (event, ui) {
+                    $('#search').val(ui.item.content)
+                    return false;
+                }
+
+            }).data("ui-Autocomplete")._renderItem = function (ul, item) {
+                var inner_html = item.content + ' in ' + item.type + '';
+                return $("<li class=></li>")
+                    .data("item.autocomplete", item)
+                    .append(inner_html)
+                    .appendTo(ul);
+            };
+        });
+    </script>
+    <!-- End for JQuery Autocomplete-->
+</head>
+
+<body>
+
+    <!-- For colors: https://getbootstrap.com/docs/4.5/components/navbar/#color-schemes -->
+    <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand" href="#">
+            <img src="/image/bootstrap-solid.svg" width="30" height="30" alt="" loading="lazy">
+            Book Bazzar
+        </a>
+    </nav>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10">
+                <input class="form-control form-control-lg" id="search" type="search"
+                    placeholder="Enter your search here" aria-label="Search">
+            </div>
+            <div class="col-md-1">
+                <button class="btn btn-outline-success my-2 my-sm-1" type="submit">Search</button>
+            </div>
+        </div>
+    </div>
+    <br />
+    <br />
+    <br />
+    <div class="container">
+        <h4>Best Sellers</h4>
+    </div>
+    <div class="container">
+        <div class="d-flex flex-row flex-nowrap overflow-auto">
+            <div class="card card-block mx-2 border-success" style="min-width: 220px; max-height: 500px;">
+                <div class="container">
+                    <div class="row">
+                        <img src="image/book1.jpeg" class="mx-auto d-block mt-1">
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <button class="btn btn-link">Agni Siragugal</h5>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <span>₹ 200</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <button class="btn btn-success">Buy</button>
+                        </div>
+                    </div>
+                    <br>
+                </div>
+            </div>
+
+            <div class="card card-block mx-2 border-success" style="min-width: 220px; max-height: 500px;">
+                <div class="container">
+                    <div class="row">
+                        <img src="image/book2.jpeg" class="mx-auto d-block mt-1">
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <button class="btn btn-link">Agni Siragugal</h5>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <span>₹ 200</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <button class="btn btn-success">Buy</button>
+                        </div>
+                    </div>
+                    <br>
+                </div>
+            </div>
+
+            <div class="card card-block mx-2 border-success" style="min-width: 220px; max-height: 500px;">
+                <div class="container">
+                    <div class="row">
+                        <img src="image/book3.jpeg" class="mx-auto d-block mt-1">
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <button class="btn btn-link">Agni Siragugal</h5>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <span>₹ 200</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <button class="btn btn-success">Buy</button>
+                        </div>
+                    </div>
+                    <br>
+                </div>
+            </div>
+
+            <div class="card card-block mx-2 border-success" style="min-width: 220px; max-height: 500px;">
+                <div class="container">
+                    <div class="row">
+                        <img src="image/book4.jpeg" class="mx-auto d-block mt-1">
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <button class="btn btn-link">Agni Siragugal</h5>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <span>₹ 200</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <button class="btn btn-success">Buy</button>
+                        </div>
+                    </div>
+                    <br>
+                </div>
+            </div>
+
+            <div class="card card-block mx-2 border-success" style="min-width: 220px; max-height: 500px;">
+                <div class="container">
+                    <div class="row">
+                        <img src="image/book5.png" class="mx-auto d-block mt-1">
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <button class="btn btn-link">Agni Siragugal</h5>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <span>₹ 200</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <button class="btn btn-success">Buy</button>
+                        </div>
+                    </div>
+                    <br>
+                </div>
+            </div>
+
+            <div class="card card-block mx-2 border-success" style="min-width: 220px; max-height: 500px;">
+                <div class="container">
+                    <div class="row">
+                        <img src="image/book6.png" class="mx-auto d-block mt-1">
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <button class="btn btn-link">Agni Siragugal</h5>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <span>₹ 200</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <button class="btn btn-success">Buy</button>
+                        </div>
+                    </div>
+                    <br>
+                </div>
+            </div>
+
+            <div class="card card-block mx-2 border-success" style="min-width: 220px; max-height: 500px;">
+                <div class="container">
+                    <div class="row">
+                        <img src="image/book7.png" class="mx-auto d-block mt-1">
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <button class="btn btn-link">Agni Siragugal</h5>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <span>₹ 200</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <button class="btn btn-success">Buy</button>
+                        </div>
+                    </div>
+                    <br>
+                </div>
+            </div>
+
+            <div class="card card-block mx-2 border-success" style="min-width: 220px; max-height: 500px;">
+                <div class="container">
+                    <div class="row">
+                        <img src="image/book8.png" class="mx-auto d-block mt-1">
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <button class="btn btn-link">Agni Siragugal</h5>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <span>₹ 200</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <button class="btn btn-success">Buy</button>
+                        </div>
+                    </div>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container mt-5">
+        <h4>Recent Arrival</h4>
+    </div>
+    <div class="container">
+        <div class="d-flex flex-row flex-nowrap overflow-auto">
+            <div class="card card-block mx-2 border-success" style="min-width: 220px; max-height: 500px;">
+                <div class="container">
+                    <div class="row">
+                        <img src="image/book9.png" class="mx-auto d-block mt-1">
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <button class="btn btn-link">Agni Siragugal</h5>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <span>₹ 200</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <button class="btn btn-success">Buy</button>
+                        </div>
+                    </div>
+                    <br>
+                </div>
+            </div>
+
+            <div class="card card-block mx-2 border-success" style="min-width: 220px; max-height: 500px;">
+                <div class="container">
+                    <div class="row">
+                        <img src="image/book8.png" class="mx-auto d-block mt-1">
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <button class="btn btn-link">Agni Siragugal</h5>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <span>₹ 200</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <button class="btn btn-success">Buy</button>
+                        </div>
+                    </div>
+                    <br>
+                </div>
+            </div>
+
+            <div class="card card-block mx-2 border-success" style="min-width: 220px; max-height: 500px;">
+                <div class="container">
+                    <div class="row">
+                        <img src="image/book7.png" class="mx-auto d-block mt-1">
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <button class="btn btn-link">Agni Siragugal</h5>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <span>₹ 200</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <button class="btn btn-success">Buy</button>
+                        </div>
+                    </div>
+                    <br>
+                </div>
+            </div>
+
+            <div class="card card-block mx-2 border-success" style="min-width: 220px; max-height: 500px;">
+                <div class="container">
+                    <div class="row">
+                        <img src="image/book6.png" class="mx-auto d-block mt-1">
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <button class="btn btn-link">Agni Siragugal</h5>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <span>₹ 200</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <button class="btn btn-success">Buy</button>
+                        </div>
+                    </div>
+                    <br>
+                </div>
+            </div>
+
+            <div class="card card-block mx-2 border-success" style="min-width: 220px; max-height: 500px;">
+                <div class="container">
+                    <div class="row">
+                        <img src="image/book5.png" class="mx-auto d-block mt-1">
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <button class="btn btn-link">Agni Siragugal</h5>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <span>₹ 200</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <button class="btn btn-success">Buy</button>
+                        </div>
+                    </div>
+                    <br>
+                </div>
+            </div>
+
+            <div class="card card-block mx-2 border-success" style="min-width: 220px; max-height: 500px;">
+                <div class="container">
+                    <div class="row">
+                        <img src="image/book1.jpeg" class="mx-auto d-block mt-1">
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <button class="btn btn-link">Agni Siragugal</h5>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <span>₹ 200</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <button class="btn btn-success">Buy</button>
+                        </div>
+                    </div>
+                    <br>
+                </div>
+            </div>
+
+            <div class="card card-block mx-2 border-success" style="min-width: 220px; max-height: 500px;">
+                <div class="container">
+                    <div class="row">
+                        <img src="image/book4.jpeg" class="mx-auto d-block mt-1">
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <button class="btn btn-link">Agni Siragugal</h5>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <span>₹ 200</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <button class="btn btn-success">Buy</button>
+                        </div>
+                    </div>
+                    <br>
+                </div>
+            </div>
+
+            <div class="card card-block mx-2 border-success" style="min-width: 220px; max-height: 500px;">
+                <div class="container">
+                    <div class="row">
+                        <img src="image/book3.jpeg" class="mx-auto d-block mt-1">
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <button class="btn btn-link">Agni Siragugal</h5>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <span>₹ 200</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <button class="btn btn-success">Buy</button>
+                        </div>
+                    </div>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,141 @@
+<html>
+
+<head>
+    <!-- https://getbootstrap.com/docs/4.4/getting-started/introduction/ -->
+    <!-- https://www.practicalecommerce.com/Create-Responsive-Ecommerce-Product-Pages-with-Bootstrap -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <!-- <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script> -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="prod.js"></script>
+</head>
+
+<body>
+    <template id="book-detail">
+        <div class="row">
+            <!-- <div class="col-md-4 fixed-top one"> -->
+            <div class="col-md-4">
+                <img id="book-img" src="image/java.jpeg" class="img-fluid" />
+            </div>
+            <!-- <div class="col-md-6 offset-sm-4 two"> -->
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1 id="title">Java Concurrency in Practice</h1>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <p class="font-weight-bold" id="author">
+                            by Goetz (Author)
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <span class="badge badge-info">Book</span>
+                        <span class="badge" id="productId">Product No: 194827</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <hr />
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <!-- <span class="sr-only sr-only-focusable">Four out of Five Stars</span> -->
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star-o" aria-hidden="true"></i>
+
+                        <span class="badge badge-success" id="ratings">61</span>
+                    </div>
+                    <div class="col-md-8">
+                        <button type="button" class="btn btn-link" id="reviews">356 Reviews</button>
+                    </div>
+                </div>
+
+                <br />
+                <div class="row">
+                    <div class="col-md-12">
+                        <h2 class="product-price" id="price">₹ 409.00</h2>
+                    </div>
+                </div><!-- end row -->
+
+                <br />
+                <div class="row">
+                    <div class="col-md-1">
+                        <span>
+                            <button>
+                                <i class="fa fa-plus" aria-hidden="true"></i>
+                            </button>
+                        </span>
+                    </div>
+                    <div class="col-md-2">
+                        <span>
+                            <input type="text" class="form-control w-100" value="1" maxlength="2" />
+                        </span>
+                    </div>
+                    <div class="col-md-1">
+                        <button>
+                            <span>
+                                <i class="fa fa-minus" aria-hidden="true"></i>
+                            </span>
+                        </button>
+                    </div>
+                    <div class="col-md-4" align="center">
+                        <button type="button" class="btn btn-success btn-lg">
+                            Buy Now
+                        </button>
+                    </div>
+                    <div class="col-md-4" align="center">
+                        <button type="button" class="btn btn-warning btn-lg">
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+
+                <br />
+
+                <div class="row">
+                    <div class="col-md-12 top-10">
+                        <p>To order by phone, <a href="tel:9994156562">please call +91-999-41-56-562</a></p>
+                    </div>
+                </div><!-- end row -->
+
+            </div>
+        </div>
+    </template>
+    <div class="container">
+        <!-- For colors: https://getbootstrap.com/docs/4.5/components/navbar/#color-schemes -->
+        <nav class="navbar navbar-light bg-light">
+            <a class="navbar-brand" href="#">
+                <img src="/image/bootstrap-solid.svg" width="30" height="30" alt="" loading="lazy">
+                Book Bazzar
+            </a>
+            <form class="form-inline">
+                <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </nav>
+    </div>
+    <br />
+    <br />
+    <div class="container" id="main-body">
+
+    </div>
+</body>
+
+</html>
