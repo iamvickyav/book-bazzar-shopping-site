@@ -1,0 +1,138 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+    <!-- Slim version breaks AJAX Calls-->
+    <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+    <!-- For loading Icons-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="main.js"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-dark bg-dark justify-content-between">
+        <a class="navbar-brand" href="#">
+            <img src="images/logo.svg" width="30" height="30" class="d-inline-block align-top" alt="">
+            <span style="margin-left: 10px;">BookBazzar</span>
+        </a>
+        <form class="form-inline">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+    </nav>
+    <hr />
+    <br />
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <!-- Image Column -->
+                <img src="images/java-concurrency.jpeg">
+            </div>
+            <div class="col-md-8">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h1>Java Concurrency in practice</h1>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h6>By Joshua Bloch</h6>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="col-md-1">
+                            <span class="badge badge-primary">Book</span>
+                        </div>
+                        <div class="col-md-11">
+                            <span>Product Id: 12345</span>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="col-md-3">
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                            <i class="fa fa-star-o" aria-hidden="true"></i>
+                            <span class="badge badge-success">65</span>
+                        </div>
+                        <div class="col-md-9">
+                            <span><button type="button" class="btn btn-link">28 Reviews</button></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h2>₹ 370</h2>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="col-md-1">
+                            <button>
+                                <i class="fa fa-plus" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                        <div class="col-md-2">
+                            <input type="text" class="form-control w-100" value="1" maxlength="3">
+                        </div>
+                        <div class="col-md-1">
+                            <button>
+                                <i class="fa fa-minus" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                        <div class="col-md-2">
+                            <button class="btn btn-success">Buy now</button>
+                        </div>
+                        <div class="col-md-2">
+                            <button class="btn btn-warning">Add to cart</button>
+                        </div>
+                    </div>
+                    <br />
+                    <br />
+                    <div class="row" id="pincode-enter">
+                        <div class="col-md-3">
+                            <input class="form-control" id="pincode-id" name="number" placeholder="Enter Pincode">
+                        </div>
+                        <div class="col-md-2">
+                            <button class="btn btn-default" id="pincode-submit">Submit</button>
+                        </div>
+                    </div>
+                    <div class="row" id="pincode-warning" style="display: none;">
+                        <div class="col">
+                            <p class="text-danger">Sorry ! This pincode is not servicable !</p>
+                        </div>
+                    </div>
+                    <div class="row" id="pincode-show" style="display:none;">
+                        <button class="btn btn-link" id="pincode-display"><span>Deliver to : </span></button>
+                    </div>
+                    <br />
+                    <br />
+                    <div class="row">
+                        <div class="col">
+                            <h6>To order by phone, please call +91-999-41-56-562</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
